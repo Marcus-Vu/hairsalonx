@@ -89,7 +89,7 @@ export default function HeroCarousel({
                   href={slides[currentIndex].cta!.href}
                   external
                   size="lg"
-                  className="w-full max-w-[280px] lg:max-w-[320px] shadow-2xl hover:shadow-primary/50 bg-primary hover:bg-primary-dark text-charcoal font-bold text-base lg:text-lg"
+                  className="w-full max-w-[280px] lg:max-w-[320px] !shadow-2xl hover:!shadow-primary/50 !bg-primary hover:!bg-primary-dark !text-charcoal !font-bold !text-base lg:!text-lg"
                 >
                   {slides[currentIndex].cta!.text}
                 </Button>
