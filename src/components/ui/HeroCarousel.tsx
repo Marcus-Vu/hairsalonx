@@ -55,8 +55,8 @@ export default function HeroCarousel({
             style={{ backgroundImage: `url('${slides[currentIndex].image}')` }}
           />
 
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-black/30 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+          {/* Dark Overlay - Stronger for better text readability */}
+          <div className="absolute inset-0 bg-black/40 bg-gradient-to-t from-black/95 via-black/50 to-black/30" />
         </motion.div>
       </AnimatePresence>
 
@@ -81,14 +81,19 @@ export default function HeroCarousel({
             </p>
 
             {slides[currentIndex].cta && (
-              <Button
-                href={slides[currentIndex].cta!.href}
-                external
-                size="lg"
-                className="w-full max-w-[280px] lg:max-w-[320px]"
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
               >
-                {slides[currentIndex].cta!.text}
-              </Button>
+                <Button
+                  href={slides[currentIndex].cta!.href}
+                  external
+                  size="lg"
+                  className="w-full max-w-[280px] lg:max-w-[320px] shadow-2xl hover:shadow-primary/50 bg-primary hover:bg-primary-dark text-charcoal font-bold text-base lg:text-lg"
+                >
+                  {slides[currentIndex].cta!.text}
+                </Button>
+              </motion.div>
             )}
           </motion.div>
         </AnimatePresence>
