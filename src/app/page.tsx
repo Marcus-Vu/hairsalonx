@@ -86,175 +86,119 @@ export default function HomePage() {
       </section>
 
       {/* Portfolio / Transformations Section */}
-      <section className="px-6 lg:px-12 py-8 lg:py-16 bg-white mx-4 lg:mx-12 max-w-7xl lg:mx-auto rounded-3xl shadow-soft">
-        <div className="text-center mb-10 lg:mb-16">
-          <span className="text-xs lg:text-sm font-bold tracking-[0.2em] text-primary uppercase block mb-2">
-            Portfolio
-          </span>
-          <h2 className="font-serif text-3xl lg:text-5xl text-charcoal">Transformaties</h2>
+      <section className="px-6 lg:px-12 py-20 lg:py-32 bg-white max-w-7xl mx-auto rounded-none">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 lg:mb-24 gap-8">
+          <div className="max-w-xl">
+            <span className="text-[10px] lg:text-xs font-bold tracking-[0.4em] text-primary uppercase block mb-6">
+              Vakmanschap
+            </span>
+            <h2 className="font-serif text-4xl lg:text-7xl text-charcoal leading-tight">Onze Transformaties</h2>
+          </div>
+          <Link
+            href="/portfolio"
+            className="text-[10px] lg:text-xs font-bold tracking-[0.3em] text-taupe uppercase hover:text-primary transition-all pb-1 border-b border-taupe/20 group flex items-center gap-4"
+          >
+            Bekijk Volledig Portfolio
+            <span className="material-symbols-outlined text-sm group-hover:translate-x-2 transition-transform">arrow_forward</span>
+          </Link>
         </div>
 
-        {/* Grid Layout */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-          {/* Grid Item 1 (Tall) */}
+        {/* Grid Layout - More curated and dynamic */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8">
+          {/* Main Large Image */}
           <motion.div
-            className="relative aspect-[3/5] rounded-xl overflow-hidden group portfolio-card"
-            whileHover={{ scale: 1.02 }}
+            className="lg:col-span-7 relative aspect-[4/5] lg:aspect-[3/2] overflow-hidden group cursor-pointer"
+            whileHover={{ scale: 0.99 }}
           >
             <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-500 portfolio-image"
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
               style={{ backgroundImage: `url('${TRANSFORMATION_IMAGES[0]}')` }}
             />
+            <div className="absolute inset-0 bg-black/10 transition-opacity group-hover:opacity-0" />
           </motion.div>
 
-          {/* Grid Item 2 (Stacked) */}
-          <div className="space-y-4 lg:contents">
+          {/* Secondary Verticals */}
+          <div className="lg:col-span-5 grid grid-cols-2 lg:grid-cols-1 gap-6 lg:gap-8">
             <motion.div
-              className="relative aspect-square lg:aspect-[3/5] rounded-xl overflow-hidden group portfolio-card"
-              whileHover={{ scale: 1.02 }}
+              className="relative aspect-[3/4] lg:aspect-[16/9] overflow-hidden group cursor-pointer"
+              whileHover={{ scale: 0.99 }}
             >
               <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 portfolio-image"
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
                 style={{ backgroundImage: `url('${TRANSFORMATION_IMAGES[1]}')` }}
               />
             </motion.div>
             <motion.div
-              className="relative aspect-[4/5] lg:aspect-[3/5] rounded-xl overflow-hidden group portfolio-card"
-              whileHover={{ scale: 1.02 }}
+              className="relative aspect-[3/4] lg:aspect-[16/9] overflow-hidden group cursor-pointer"
+              whileHover={{ scale: 0.99 }}
             >
               <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 portfolio-image"
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
                 style={{ backgroundImage: `url('${TRANSFORMATION_IMAGES[2]}')` }}
               />
             </motion.div>
           </div>
-
-          {/* Grid Item 3 (Tall) */}
-          <motion.div
-            className="relative aspect-[3/5] rounded-xl overflow-hidden group portfolio-card"
-            whileHover={{ scale: 1.02 }}
-          >
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-500 portfolio-image"
-              style={{ backgroundImage: `url('${TRANSFORMATION_IMAGES[3]}')` }}
-            />
-          </motion.div>
-
-          {/* Grid Item 4 (Stacked with CTA) - Hidden on desktop */}
-          <div className="space-y-4 -mt-16 lg:hidden">
-            <motion.div
-              className="relative aspect-[4/5] rounded-xl overflow-hidden group portfolio-card"
-              whileHover={{ scale: 1.02 }}
-            >
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 portfolio-image"
-                style={{ backgroundImage: `url('${TRANSFORMATION_IMAGES[4]}')` }}
-              />
-            </motion.div>
-            <Link
-              href="/portfolio"
-              className="relative aspect-square rounded-xl overflow-hidden bg-primary flex items-center justify-center group hover:bg-primary-dark transition-colors"
-            >
-              <span className="text-charcoal font-serif text-lg italic text-center">
-                Bekijk
-                <br />
-                meer
-              </span>
-            </Link>
-          </div>
-        </div>
-
-        <div className="mt-8 lg:mt-12 text-center">
-          <p className="text-sm lg:text-base text-taupe flex items-center justify-center gap-2">
-            <span className="material-symbols-outlined text-base lg:text-lg text-primary">
-              verified
-            </span>
-            Volg ons @HairsalonX
-          </p>
-        </div>
-
-        {/* Desktop CTA */}
-        <div className="hidden lg:flex justify-center mt-12">
-          <Link
-            href="/portfolio"
-            className="bg-primary text-charcoal px-10 py-4 rounded-full font-bold text-base tracking-wider hover:bg-primary-dark transition-colors shadow-lg"
-          >
-            Bekijk Meer Portfolio
-          </Link>
         </div>
       </section>
 
-      {/* Location & Info Section */}
-      <section className="py-12 lg:py-20 px-6 lg:px-12 max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
-          {/* Contact Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-background-dark text-background-light rounded-2xl lg:rounded-3xl p-8 lg:p-12 text-center relative overflow-hidden"
-          >
-            {/* Background Blobs */}
-            <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+      {/* Location & Info Section - Luxury Dark Theme */}
+      <section className="py-24 lg:py-40 px-6 lg:px-12 bg-background-dark overflow-hidden relative">
+        {/* Background Accents */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -mr-64 -mt-64" />
 
-            <span className="material-symbols-outlined text-4xl lg:text-5xl text-primary mb-4 relative z-10">
-              location_on
-            </span>
-            <h3 className="font-serif text-xl lg:text-3xl mb-2 relative z-10">Bezoek Ons</h3>
-            <p className="text-sm lg:text-base text-white/60 mb-6 lg:mb-8 font-light relative z-10">
-              {CONTACT.address}, {CONTACT.postalCode}
-              <br />
-              {CONTACT.city}, {CONTACT.country}
-            </p>
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+            {/* Contact Info */}
+            <div className="lg:col-span-5">
+              <span className="text-[10px] font-bold tracking-[0.4em] text-primary uppercase block mb-8">
+                Contact & Locatie
+              </span>
+              <h2 className="font-serif text-4xl lg:text-6xl text-white mb-10 leading-tight">Kom langs in onze salon</h2>
 
-            <div className="w-full h-[1px] bg-white/10 mb-6 lg:mb-8 relative z-10" />
-
-            <div className="flex justify-center gap-8 lg:gap-12 relative z-10">
-              <a
-                href={`tel:${CONTACT.phone.replace(/-/g, "")}`}
-                className="flex flex-col items-center gap-2 group"
-              >
-                <div className="w-10 h-10 lg:w-14 lg:h-14 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-primary group-hover:text-charcoal transition-colors">
-                  <span className="material-symbols-outlined text-sm lg:text-base">call</span>
+              <div className="space-y-12">
+                <div>
+                  <p className="text-white/40 text-[10px] uppercase tracking-[0.2em] mb-4">Adres</p>
+                  <p className="text-white text-lg lg:text-xl font-light">
+                    {CONTACT.address}<br />
+                    {CONTACT.postalCode} {CONTACT.city}
+                  </p>
                 </div>
-                <span className="text-xs lg:text-sm text-white/50 group-hover:text-primary transition-colors">
-                  Bel
-                </span>
-              </a>
-              <a
-                href={`mailto:${CONTACT.email}`}
-                className="flex flex-col items-center gap-2 group"
-              >
-                <div className="w-10 h-10 lg:w-14 lg:h-14 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-primary group-hover:text-charcoal transition-colors">
-                  <span className="material-symbols-outlined text-sm lg:text-base">mail</span>
+
+                <div className="grid grid-cols-2 gap-8">
+                  <div>
+                    <p className="text-white/40 text-[10px] uppercase tracking-[0.2em] mb-4">Telefoon</p>
+                    <a href={`tel:${CONTACT.phone}`} className="text-white text-lg hover:text-primary transition-colors">{CONTACT.phone}</a>
+                  </div>
+                  <div>
+                    <p className="text-white/40 text-[10px] uppercase tracking-[0.2em] mb-4">Email</p>
+                    <a href={`mailto:${CONTACT.email}`} className="text-white text-lg hover:text-primary transition-colors">{CONTACT.email}</a>
+                  </div>
                 </div>
-                <span className="text-xs lg:text-sm text-white/50 group-hover:text-primary transition-colors">
-                  Mail
-                </span>
-              </a>
+
+                <div className="pt-8">
+                  <Link
+                    href={BOOKING_URL}
+                    className="inline-block bg-white text-background-dark px-12 py-5 font-bold text-[10px] tracking-[0.3em] uppercase hover:bg-primary transition-all duration-500"
+                  >
+                    Direct Boeken
+                  </Link>
+                </div>
+              </div>
             </div>
-          </motion.div>
 
-          {/* Google Maps */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-xl h-full min-h-[400px]"
-          >
-            <iframe
-              src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(
-                `${CONTACT.address}, ${CONTACT.postalCode} ${CONTACT.city}`
-              )}&zoom=15`}
-              className="w-full h-full border-0"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </motion.div>
+            {/* Map - Integration as a design element */}
+            <div className="lg:col-span-7 aspect-square lg:aspect-video relative grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-1000 border border-white/10">
+              <iframe
+                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(
+                  `${CONTACT.address}, ${CONTACT.postalCode} ${CONTACT.city}`
+                )}&zoom=15&style=feature:all|element:all|saturation:-100|lightness:-20`}
+                className="w-full h-full border-0"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
         </div>
       </section>
 

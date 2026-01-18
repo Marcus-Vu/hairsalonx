@@ -10,16 +10,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#C9BDB1",
-        "primary-dark": "#b0a396",
-        "background-light": "#FAF9F6",
-        "background-dark": "#0A0A0A",
-        charcoal: "#1C1C1C",
-        taupe: "#8E8680",
-        "taupe-dark": "#7b736b",
-        surface: "#F2F0ED",
-        "brand-cream": "#f0ebe2",
-        "brand-beige": "#d4c5a5",
+        primary: "#D4AF37",         // Brushed Gold
+        "primary-dark": "#B8860B",
+        "background-light": "#F8F5F2",
+        "background-dark": "#0F0F0F",
+        charcoal: "#1A1A1A",
+        taupe: "#8C8279",
+        "taupe-dark": "#756D66",
+        surface: "#EFEBE7",
+        accent: "#2C2C2C",
+        "brand-cream": "#FDFCFB",
+        "brand-gold-soft": "#E5D1A0",
       },
       fontFamily: {
         display: ["var(--font-manrope)", "sans-serif"],

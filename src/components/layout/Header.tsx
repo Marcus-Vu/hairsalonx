@@ -11,75 +11,74 @@ export default function Header() {
 
     return (
         <>
-            <header className="fixed top-0 left-0 w-full z-50 transition-all duration-300">
-                {/* Backdrop with blur for readability */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-transparent backdrop-blur-sm pointer-events-none h-32 lg:h-24" />
+            <header className="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+                {/* Refined Backdrop with subtle gradient and blur */}
+                <div className="absolute inset-0 bg-gradient-to-b from-background-dark/95 via-background-dark/60 to-transparent backdrop-blur-md pointer-events-none h-32 lg:h-28" />
 
-                <div className="relative flex items-center justify-between px-6 py-6 max-w-7xl mx-auto">
-                    {/* Menu Button */}
+                <div className="relative flex items-center justify-between px-6 py-6 lg:py-8 max-w-7xl mx-auto">
+                    {/* Menu Button - More professional appearance */}
                     <button
                         onClick={() => setIsMenuOpen(true)}
-                        className="text-white hover:text-primary transition-colors p-2 rounded-full active:bg-white/10 lg:hidden"
+                        className="text-white/90 hover:text-primary transition-all p-2 rounded-full hover:bg-white/5 lg:hidden border border-white/10"
                         aria-label="Open menu"
                     >
-                        <span className="material-symbols-outlined text-[28px]">menu</span>
+                        <span className="material-symbols-outlined text-[26px]">menu</span>
                     </button>
 
-                    {/* Desktop Navigation - Split Layout */}
-                    <nav className="hidden lg:flex items-center gap-8">
+                    {/* Desktop Navigation Left - Refined typography */}
+                    <nav className="hidden lg:flex items-center gap-10">
                         {NAV_LINKS.slice(0, 2).map((link) => (
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className="text-white/90 hover:text-primary transition-colors font-medium tracking-wide text-sm uppercase"
+                                className="text-white/80 hover:text-primary transition-all font-medium tracking-[0.15em] text-[11px] uppercase relative group"
                             >
                                 {link.label}
+                                <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
                             </Link>
                         ))}
                     </nav>
 
-                    {/* Logo - Desktop centered, Mobile text */}
-                    <Link href="/" className="flex items-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
-                        <Image
-                            src="/images/logo.png"
-                            alt="HairsalonX Logo"
-                            width={120}
-                            height={120}
-                            className="hidden lg:block h-16 w-auto"
-                            priority
-                        />
-                        <div className="lg:hidden text-white font-serif tracking-widest text-lg font-medium uppercase">
-                            HairsalonX
+                    {/* Logo - Centered and scaled */}
+                    <Link href="/" className="flex items-center lg:absolute lg:left-1/2 lg:-translate-x-1/2 group">
+                        <div className="flex flex-col items-center">
+                            <span className="text-primary font-serif tracking-[0.3em] text-xl lg:text-2xl font-light uppercase group-hover:drop-shadow-glow transition-all duration-500">
+                                HairsalonX
+                            </span>
+                            <span className="hidden lg:block text-[8px] tracking-[0.5em] text-white/40 uppercase mt-1">
+                                Haute Coiffure
+                            </span>
                         </div>
                     </Link>
 
                     {/* Desktop Navigation Right */}
-                    <nav className="hidden lg:flex items-center gap-8">
+                    <nav className="hidden lg:flex items-center gap-10">
                         {NAV_LINKS.slice(2).map((link) => (
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className="text-white/90 hover:text-primary transition-colors font-medium tracking-wide text-sm uppercase"
+                                className="text-white/80 hover:text-primary transition-all font-medium tracking-[0.15em] text-[11px] uppercase relative group"
                             >
                                 {link.label}
+                                <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
                             </Link>
                         ))}
                         <Link
                             href={BOOKING_URL}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-primary text-charcoal px-6 py-3 rounded-full font-bold text-sm tracking-wider hover:bg-primary-dark transition-colors shadow-lg"
+                            className="bg-primary text-background-dark px-7 py-3 rounded-none font-bold text-[10px] tracking-[0.2em] hover:bg-white hover:text-background-dark transition-all duration-500 shadow-xl uppercase border border-primary/20"
                         >
                             BOEK NU
                         </Link>
                     </nav>
 
-                    {/* Search Button (mobile) */}
+                    {/* Search / Contact Button (mobile) */}
                     <button
-                        className="text-white hover:text-primary transition-colors p-2 rounded-full active:bg-white/10 lg:hidden"
-                        aria-label="Search"
+                        className="text-white/90 hover:text-primary transition-all p-2 rounded-full hover:bg-white/5 lg:hidden border border-white/10"
+                        aria-label="Contact"
                     >
-                        <span className="material-symbols-outlined text-[28px]">search</span>
+                        <span className="material-symbols-outlined text-[26px]">call</span>
                     </button>
                 </div>
             </header>
@@ -99,51 +98,61 @@ export default function Header() {
                             initial={{ x: "-100%" }}
                             animate={{ x: 0 }}
                             exit={{ x: "-100%" }}
-                            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                            className="fixed left-0 top-0 h-full w-80 bg-background-light dark:bg-background-dark z-[70] p-8"
+                            transition={{ type: "spring", damping: 30, stiffness: 300 }}
+                            className="fixed left-0 top-0 h-full w-full max-w-sm bg-background-dark z-[70] p-10 flex flex-col justify-between"
                         >
                             <button
                                 onClick={() => setIsMenuOpen(false)}
-                                className="absolute top-6 right-6 p-2 text-charcoal dark:text-white"
+                                className="absolute top-8 right-8 p-2 text-white/50 hover:text-primary transition-colors border border-white/5 rounded-full"
                                 aria-label="Close menu"
                             >
-                                <span className="material-symbols-outlined text-[28px]">close</span>
+                                <span className="material-symbols-outlined text-[24px]">close</span>
                             </button>
 
-                            <div className="mt-16 flex flex-col gap-6">
+                            <div className="mt-12 flex flex-col gap-8">
+                                <div className="mb-10 text-center">
+                                    <span className="text-primary font-serif tracking-[0.3em] text-2xl font-light uppercase">
+                                        HairsalonX
+                                    </span>
+                                </div>
+
                                 {NAV_LINKS.map((link, index) => (
                                     <motion.div
                                         key={link.href}
-                                        initial={{ opacity: 0, x: -20 }}
-                                        animate={{ opacity: 1, x: 0 }}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: index * 0.1 }}
                                     >
                                         <Link
                                             href={link.href}
                                             onClick={() => setIsMenuOpen(false)}
-                                            className="text-2xl font-serif text-charcoal dark:text-white hover:text-primary transition-colors"
+                                            className="text-3xl font-serif text-white/90 hover:text-primary transition-all flex items-center justify-between group"
                                         >
                                             {link.label}
+                                            <span className="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
                                         </Link>
                                     </motion.div>
                                 ))}
-
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.5 }}
-                                    className="mt-8"
-                                >
-                                    <Link
-                                        href={BOOKING_URL}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="block w-full bg-primary text-charcoal px-8 py-4 rounded-full font-bold text-center tracking-wider hover:bg-primary-dark transition-colors"
-                                    >
-                                        BOEK NU
-                                    </Link>
-                                </motion.div>
                             </div>
+
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.6 }}
+                                className="mb-8"
+                            >
+                                <Link
+                                    href={BOOKING_URL}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block w-full bg-primary text-background-dark px-8 py-5 rounded-none font-bold text-center tracking-[0.2em] text-xs uppercase hover:bg-white transition-all duration-300"
+                                >
+                                    AFSPRAAK MAKEN
+                                </Link>
+                                <p className="text-center text-white/30 text-[10px] uppercase tracking-[0.2em] mt-8">
+                                    Roermond, Nederland
+                                </p>
+                            </motion.div>
                         </motion.div>
                     </>
                 )}

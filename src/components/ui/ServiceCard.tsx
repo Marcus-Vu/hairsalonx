@@ -20,33 +20,35 @@ export default function ServiceCard({
     href = "/diensten",
 }: ServiceCardProps) {
     return (
-        <Link href={href} className="flex-none w-[200px] lg:w-auto snap-center group cursor-pointer">
+        <Link href={href} className="flex-none w-[260px] lg:w-auto snap-center group cursor-pointer">
             <motion.div
-                className="relative aspect-[3/4] overflow-hidden rounded-xl lg:rounded-2xl bg-surface mb-3"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
+                className="relative aspect-[4/5] overflow-hidden bg-background-dark mb-5 border border-white/5"
+                whileHover={{ scale: 0.98 }}
+                transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
             >
                 {/* Background Image */}
                 <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 service-image"
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105 grayscale-[0.3] group-hover:grayscale-0 opacity-80 group-hover:opacity-100"
                     style={{ backgroundImage: `url('${image}')` }}
                 />
 
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
+                {/* Refined Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background-dark/80 via-transparent to-transparent" />
 
-                {/* Icon */}
-                <div className="absolute bottom-4 left-4 lg:bottom-6 lg:left-6">
-                    <span className="material-symbols-outlined text-white mb-1 text-2xl lg:text-3xl">
+                {/* Content Overlay */}
+                <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                    <span className="material-symbols-outlined text-primary mb-3 text-2xl">
                         {icon}
                     </span>
+                    <h3 className="text-xl lg:text-2xl font-serif font-light text-white tracking-wide">
+                        {title}
+                    </h3>
                 </div>
             </motion.div>
 
-            <h3 className="text-lg lg:text-xl font-serif font-medium text-charcoal dark:text-white">
-                {title}
-            </h3>
-            <p className="text-sm lg:text-base text-taupe">{description}</p>
+            <p className="text-xs lg:text-sm text-taupe tracking-widest uppercase font-medium">
+                {description}
+            </p>
         </Link>
     );
 }
