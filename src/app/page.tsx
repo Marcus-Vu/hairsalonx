@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import ServiceCard from "@/components/ui/ServiceCard";
+import HeroCarousel from "@/components/ui/HeroCarousel";
+import Newsletter from "@/components/ui/Newsletter";
 import {
   BOOKING_URL,
   HERO_IMAGE,
@@ -12,57 +14,41 @@ import {
   CONTACT,
 } from "@/lib/constants";
 
+const heroSlides = [
+  {
+    image: HERO_IMAGE,
+    title: "Haar zoals je het <br /><span class='italic text-primary'>nog niet kende</span>",
+    subtitle: "Ervaar luxe en vakmanschap in hartje Roermond",
+    cta: {
+      text: "Maak Afspraak",
+      href: BOOKING_URL,
+    },
+  },
+  {
+    image: SERVICE_IMAGES.knippen,
+    title: "De Perfecte <br /><span class='italic text-primary'>Knipbeurt</span>",
+    subtitle: "Precisie en stijl voor elke look",
+    cta: {
+      text: "Onze Diensten",
+      href: "/diensten",
+    },
+  },
+  {
+    image: SERVICE_IMAGES.kleuren,
+    title: "Kleur die <br /><span class='italic text-primary'>Jou Laat Stralen</span>",
+    subtitle: "Van balayage tot volledige transformaties",
+    cta: {
+      text: "Bekijk Portfolio",
+      href: "/portfolio",
+    },
+  },
+];
+
 export default function HomePage() {
   return (
     <div className="pb-24">
-      {/* Hero Section */}
-      <section className="relative h-[90vh] w-full overflow-hidden rounded-b-[2.5rem] lg:rounded-b-[3rem] shadow-2xl">
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('${HERO_IMAGE}')` }}
-        />
-
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/30 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-
-        {/* Hero Content */}
-        <div className="relative z-10 flex flex-col items-center justify-end h-full px-6 pb-16 lg:pb-24 text-center max-w-4xl mx-auto">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-serif text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-light text-white leading-[1.15] mb-4 lg:mb-6 drop-shadow-sm"
-          >
-            Haar zoals je het <br />
-            <span className="italic text-primary">nog niet kende</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-white/90 text-sm md:text-base lg:text-lg font-light tracking-wide mb-8 lg:mb-10"
-          >
-            Ervaar luxe en vakmanschap in hartje Roermond
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <Button
-              href={BOOKING_URL}
-              external
-              size="lg"
-              className="w-full max-w-[280px] lg:max-w-[320px]"
-            >
-              Maak Afspraak
-            </Button>
-          </motion.div>
-        </div>
-      </section>
+      {/* Hero Carousel Section */}
+      <HeroCarousel slides={heroSlides} autoPlayInterval={5000} />
 
       {/* Services Carousel Section */}
       <section className="mt-12 lg:mt-20 px-6 lg:px-12 max-w-7xl mx-auto">
@@ -271,6 +257,9 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Newsletter Section */}
+      <Newsletter />
     </div>
   );
 }
